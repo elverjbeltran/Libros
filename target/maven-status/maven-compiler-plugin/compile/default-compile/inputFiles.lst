@@ -1,0 +1,13 @@
+C:\QuizLibros\src\main\java\com\example\app\config\CustomAuthenticationSuccessHandler.java
+C:\QuizLibros\src\main\java\com\example\app\config\SecurityConfig.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\AdminController.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\HomeController.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\LibroController.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\LoginController.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\UserController.java
+C:\QuizLibros\src\main\java\com\example\app\Controller\UsuarioController.java
+C:\QuizLibros\src\main\java\com\example\app\model\Libro.java
+C:\QuizLibros\src\main\java\com\example\app\model\Usuario.java
+C:\QuizLibros\src\main\java\com\example\app\QuizLibrosApplication.java
+C:\QuizLibros\src\main\java\com\example\app\Repository\LibroRepository.java
+C:\QuizLibros\src\main\java\com\example\app\Repository\UsuarioRepository.java
