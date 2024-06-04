@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Solicitar Libro</title>
+    <meta charset="UTF-8">
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Solicitar Libro</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Listado de Libros</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>ISBN</th>
+                            <th>Categoría</th>
+                            <th>Disponibilidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="libro : ${libros}">
+                            <td th:text="${libro.id}">1</td>
+                            <td th:text="${libro.titulo}">Título</td>
+                            <td th:text="${libro.autor}">Autor</td>
+                            <td th:text="${libro.isbn}">ISBN</td>
+                            <td th:text="${libro.categoria}">Categoría</td>
+                            <td th:text="${libro.disponibilidad ? 'Sí' : 'No'}">Disponibilidad</td>
+                            <td>
+                                <button th:if="${libro.disponibilidad}" class="btn btn-success" th:onclick="'solicitarLibro(' + ${libro.id} + ')'">Solicitar</button>
+                                <button th:if="${!libro.disponibilidad}" class="btn btn-secondary" disabled>No Disponible</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function solicitarLibro(id) {
+            // Lógica para solicitar el libro con el ID dado
+            alert('Libro solicitado con ID: ' + id);
+            // Aquí puedes hacer una petición AJAX para enviar la solicitud al servidor
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Libros</title>
+    <meta charset="UTF-8">
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Libros</h1>
+        <div class="mb-3">
+            <a href="/libros/new" class="btn btn-primary">Crear Nuevo Libro</a>
+            <a href="/" class="btn btn-secondary">Volver a la Página Principal</a>
+            
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>ISBN</th>
+                    <th>Categoría</th>
+                    <th>Disponibilidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro : ${libros}">
+                    <td th:text="${libro.id}">1</td>
+                    <td th:text="${libro.titulo}">Título</td>
+                    <td th:text="${libro.autor}">Autor</td>
+                    <td th:text="${libro.isbn}">ISBN</td>
+                    <td th:text="${libro.categoria}">Categoría</td>
+                    <td th:text="${libro.disponibilidad ? 'Sí' : 'No'}">Disponibilidad</td>
+                    <td>
+                        <a th:href="@{/libros/edit/{id}(id=${libro.id})}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/libros/delete/{id}(id=${libro.id})}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Usuarios</title>
+    <meta charset="UTF-8">
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Usuarios</h1>
+        <div class="mb-3">
+            <a href="/usuarios/new" class="btn btn-primary">Crear Nuevo Usuario</a>
+            <a href="/" class="btn btn-secondary">Volver a la Página Principal</a>
+            
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id}">1</td>
+                    <td th:text="${usuario.nombre}">Nombre</td>
+                    <td th:text="${usuario.email}">Email</td>
+                    <td th:text="${usuario.rol}">Rol</td>
+                    <td>
+                        <a th:href="@{/usuarios/edit/{id}(id=${usuario.id})}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/usuarios/delete/{id}(id=${usuario.id})}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

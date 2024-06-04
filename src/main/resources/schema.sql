@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS libro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    autor VARCHAR(255) NOT NULL,
+    isbn VARCHAR(50) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
+    disponibilidad BOOLEAN NOT NULL
+);
